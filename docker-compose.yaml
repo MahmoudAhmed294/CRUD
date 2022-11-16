@@ -1,12 +1,11 @@
-version: "3.4"
+version: '3.8'
+
 services:
-  my_frontend:
-    container_name: my_frontend
-    image: node:lts
-    working_dir: /var/www/html/app/
-    entrypoint: /bin/bash
-    expose:
-      - 8000
+  dev:
+    build: 
+      context: ./
+      dockerfile: Dockerfile
     volumes:
-      - ./frontend/:/var/www/html/app
-    tty: true
+      - ./:/app
+    ports:
+      - '8000:8000'
